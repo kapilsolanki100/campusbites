@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBites - Admin Dashboard</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+</head>
+<body>
+    <header class="navbar">
+        <nav id="site-top-nav" class="navbar-menu">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html" title="Logo">
+                        <img src="img/logo.png" alt="Logo" class="img-responsive">
+                    </a>
+                </div>
+                <div class="menu text-right">
+                    <ul>
+                        <li><a href="index.html">View Student Site</a></li>
+                        <li><a href="#" id="admin-logout" style="color: #ff4757;">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="admin-dashboard">
+        <div class="container">
+            <h2 class="text-center">Admin Dashboard</h2>
+            <div class="heading-border"></div>
+
+            <div class="admin-grid">
+
+                <div class="admin-col" id="new-orders">
+                    <h3><i class="fa fa-bell"></i> New Orders</h3>
+                    <div id="new-orders-list">
+                        <p id="no-new-orders-msg">No new orders at the moment.</p>
+                        </div>
+                </div>
+
+                <div class="admin-col" id="manage-menu">
+                    <h3><i class="fa fa-pencil"></i> Manage Menu</h3>
+                    
+                    <form id="add-menu-item-form" class="form">
+                        <fieldset>
+                            <legend>Add New Food Item</legend>
+                            <p class="label">Food Name</p>
+                            <input type="text" id="food-name" placeholder="e.g., Samosa" required>
+                            
+                            <p class="label">Price (in ₹)</p>
+                            <input type="number" id="food-price" placeholder="e.g., 15" required>
+                            
+                            <p class="label">Description</p>
+                            <input type="text" id="food-desc" placeholder="e.g., Hot and spicy" required>
+                            
+                            <p class="label">Image URL</p>
+                            <input type="text" id="food-img" placeholder="e.g., img/food/samosa.jpg" required>
+                            
+                            <input type="submit" value="Add Item" class="btn-primary">
+                        </fieldset>
+                    </form>
+                    
+                    <h4><i class="fa fa-list"></i> Current Menu</h4>
+                    <table class="tbl-full" id="current-menu-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="current-menu-list">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
